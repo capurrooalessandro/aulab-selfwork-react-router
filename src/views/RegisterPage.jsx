@@ -15,21 +15,21 @@ export default function RegisterPage() {
 						/>
                     </div>
                     <div className="form-field">
-                        <label htmlFor="password" className="form-label">Insert your password</label>
+                        <label htmlFor="passwordInsert" className="form-label">Insert your password</label>
 						<input
 							type="password"
 							className="form-control"
-							id="password"
+							id="passwordInsert"
 							name="password"
 							placeholder="Insert your password"
 						/>
                     </div>
                     <div className="form-field">
-                        <label htmlFor="password" className="form-label">Confirm your password</label>
+                        <label htmlFor="passwordConfirm" className="form-label">Confirm your password</label>
 						<input
 							type="password"
 							className="form-control"
-							id="password"
+							id="passwordConfirm"
 							name="password"
 							placeholder="Confirm your password"
 						/>
