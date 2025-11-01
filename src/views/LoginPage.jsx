@@ -25,6 +25,7 @@ export default function LoginPage() {
 						/>
                     </div>
                 </div>
+                <button type="submit" className="btn btn-primary">Click to Login!</button>
             </form>
         </section>
     )

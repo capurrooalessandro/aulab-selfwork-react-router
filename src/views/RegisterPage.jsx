@@ -1,4 +1,7 @@
+
 export default function RegisterPage() {
+
+
     return (
         <section className="form-container">
             <h1 className="register-title">Register page</h1>
@@ -15,26 +18,17 @@ export default function RegisterPage() {
 						/>
                     </div>
                     <div className="form-field">
-                        <label htmlFor="passwordInsert" className="form-label">Insert your password</label>
+                        <label htmlFor="password" className="form-label">Insert your password</label>
 						<input
 							type="password"
 							className="form-control"
-							id="passwordInsert"
+							id="password"
 							name="password"
 							placeholder="Insert your password"
 						/>
                     </div>
-                    <div className="form-field">
-                        <label htmlFor="passwordConfirm" className="form-label">Confirm your password</label>
-						<input
-							type="password"
-							className="form-control"
-							id="passwordConfirm"
-							name="password"
-							placeholder="Confirm your password"
-						/>
-                    </div>
                 </div>
+				<button type="submit" className="btn btn-primary">Click to Register!</button>
             </form>
         </section>
     )
