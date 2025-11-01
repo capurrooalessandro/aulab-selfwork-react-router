@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import HomePage from "../views/HomePage";
 import Layout from "../components/Layout";
 import InfoPage from "../views/InfoPage";
+import PostsPage from "../views/PostsPage";
 import DetailPage from "../views/DetailPage";
 import RegisterPage from "../views/RegisterPage";
 import LoginPage from "../views/LoginPage";
@@ -20,6 +21,11 @@ export const router = createBrowserRouter([
                 path: "/info",
                 Component: InfoPage,
                 loader: getAllPostsLoader
+            },
+            {
+                path: "/posts",
+                Component: PostsPage
+
             },
             {
                 path: "/info/detail/:id",

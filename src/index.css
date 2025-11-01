@@ -11,7 +11,8 @@
 	--form-background-focus: #ececec;
 	--form-color-focus: #303030;
 	--navbar-border-bottom: #1d1d1d;
-	--navbar-color: #e3e3e3;
+	--navbar-color-light: #e3e3e3;
+	--navbar-color-dark: #969696;
 	--nav-link: #4a4a4a;
 	--nav-link-hover: #2a2a2a;
 	--nav-link-active: #121212;
@@ -31,23 +32,37 @@ body {
 	padding: 0 0 90px 0;
 }
 
-.navbar {
+.navbar-light, .navbar-dark{
 	position: fixed;
 	left: 0;
 	right: 0;  
-	height: auto;
-	background-color: var(--navbar-color);
+	height: 326px;
 	display: flex;
 	justify-content: center;
+	background-color: var(--navbar-color-light);
 	border-bottom: var(--navbar-border-bottom);
 	border-bottom-width: 2px;
 	border-bottom-style: solid;
 }
 
+.navbar-dark {
+	height: 396px;
+	background-color: var(--navbar-color-dark);
+}
+
 @media (min-width:768px) {
-    .navbar {
+    .navbar-light {
         flex: 0 0 auto;
+		height: 92px;
         margin-top: 0;
+		background-color: var(--navbar-color-light);
+    }
+
+    .navbar-dark {
+        flex: 0 0 auto;
+		height: 182px;
+        margin-top: 0;
+		background-color: var(--navbar-color-dark);
     }
 }
 
