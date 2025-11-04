@@ -1,32 +1,34 @@
 export default function LoginPage() {
     return (
-        <section className="form-container">
-            <h1 className="login-title">Login page</h1>
-            <form action="">
-                <div className="form-group">
-                    <div className="form-field">
-                        <label htmlFor="email" className="form-label">Insert your email</label>
+		<section className="flex justify-center items-center flex-col h-screen">
+			<header className="h-30">
+				<h1 className="lg:text-6xl text-4xl font-[650]">Login page</h1>
+			</header>
+			<form>
+				<fieldset className="fieldset bg-base-200 border-base-300 rounded-box lg:w-lg md:w-md w-[76vw] border p-4">
+					<legend className="fieldset-legend text-[16px]">Login</legend>
+					<label className="floating-label mb-1">
+						<span>Email</span>
 						<input
 							type="email"
-							className="form-control"
 							id="email"
-							name="email"
+							className="input input-lg lg:w-lg md:w-md w-[76vw]"
 							placeholder="johndoe123@email.com"
 						/>
-                    </div>
-                    <div className="form-field">
-                        <label htmlFor="password" className="form-label">Password</label>
+					</label>
+					<label className="floating-label">
+						<span>Password</span>
 						<input
 							type="password"
-							className="form-control"
 							id="password"
-							name="password"
-							placeholder="Insert password"
+							className="input input-lg lg:w-lg md:w-md w-[76vw]"
+							placeholder="Insert your password"
 						/>
-                    </div>
-                </div>
-                <button type="submit" className="btn btn-primary">Click to Login!</button>
-            </form>
-        </section>
+					</label>
+					<hr className="my-2.5 border-zinc-500" />
+					<button type="submit" className="btn btn-primary">Click to Login!</button>
+				</fieldset>
+			</form>
+		</section>
     )
 }
