@@ -1,10 +1,11 @@
 import { useContext, useState } from "react"
-import { NavLink } from "react-router"
+import { NavLink, useNavigate } from "react-router"
 import { UserContext } from "../context/UserContext"
 
 export default function Navbar() {
-    const { userData, userLogout } = useContext(UserContext);
+    const { userData, currentUser, userLogout } = useContext(UserContext);
     const [collapse, setCollapse] = useState(false);
+    const redirect = useNavigate();
 
     return (
         <nav className="navbar sticky top-0 bg-base-200 dark:bg-base-100 shadow-sm lg:p-1 p-0 z-2">
@@ -50,7 +51,7 @@ export default function Navbar() {
                                     </NavLink>
                                 </li>
                                 {
-                                    (!userData && (
+                                    (!currentUser && (
                                         <>
                                             <li className="ps-3 py-1">
                                                 <NavLink 
@@ -96,11 +97,11 @@ export default function Navbar() {
                                     </NavLink>
                                 </li>
                                 {
-                                    (userData && (
+                                    (currentUser && (
                                         <>
                                             <hr className="border-neutral-700 my-3"/>
                                             <li className="ps-3 py-1 mb-3">
-                                                <button type="button" className="btn btn-error" onClick={() => {userLogout(), setCollapse(false)}}>Logout</button>
+                                                <button type="button" className="btn btn-error" onClick={() => {userLogout(), redirect("/login"), setCollapse(false)}}>Logout</button>
                                             </li>
                                         </>
                                     )
@@ -117,7 +118,7 @@ export default function Navbar() {
                         <NavLink to={"/"} className="aria-[current=page]:bg-neutral-300 dark:aria-[current=page]:bg-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700">Home</NavLink>
                     </li>
                     {
-                        (!userData && (
+                        (!currentUser && (
                             <>
                                 <li className="px-1">
                                     <NavLink to={"/register"} className="aria-[current=page]:bg-neutral-300 dark:aria-[current=page]:bg-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700">Register</NavLink>
@@ -142,8 +143,8 @@ export default function Navbar() {
             </section>
             <section className="navbar-end lg:inline-flex hidden">
                 {
-                    (userData && (
-                        <button type="button" className="btn btn-error" onClick={userLogout}>Logout</button>
+                    (currentUser && (
+                        <button type="button" className="btn btn-error" onClick={() =>{userLogout(), redirect("/login")}}>Logout</button>
                     ))
                 }
             </section>

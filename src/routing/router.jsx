@@ -2,6 +2,7 @@ import { getAllPostsLoader, getSinglePostLoader } from "./loaders";
 import { createBrowserRouter } from "react-router";
 import HomePage from "../views/HomePage";
 import Layout from "../components/Layout";
+import ProtectedLayout from "../components/ProtectedLayout";
 import InfoPage from "../views/InfoPage";
 import PostsPage from "../views/PostsPage";
 import DetailPage from "../views/DetailPage";
@@ -18,19 +19,24 @@ export const router = createBrowserRouter([
                 Component: HomePage
             },
             {
-                path: "/info",
-                Component: InfoPage,
-                loader: getAllPostsLoader
-            },
-            {
                 path: "/posts",
                 Component: PostsPage
-
             },
             {
-                path: "/info/detail/:id",
-                Component: DetailPage,
-                loader: getSinglePostLoader
+                Component: ProtectedLayout,
+                children: [
+                    {
+                        path: "/info",
+                        Component: InfoPage,
+                        loader: getAllPostsLoader
+
+                    },
+                    {
+                        path: "/info/detail/:id",
+                        Component: DetailPage,
+                        loader: getSinglePostLoader
+                    },
+                ]
             },
             {
                 path: "/register",
